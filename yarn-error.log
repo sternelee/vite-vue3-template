@@ -1,0 +1,44 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\stern\AppData\Roaming\npm\global\node_modules\yarn\bin\yarn.js add vue-router@4
+
+PATH: 
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\stern\bin;C:\Program Files (x86)\Google\Chrome\Application;C:\ProgramData\scoop\apps\python36\current\scripts;C:\ProgramData\scoop\apps\gcc\current\bin;C:\ProgramData\scoop\shims;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\OpenSSH;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Lua\5.1;C:\Program Files (x86)\Lua\5.1\clibs;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\PowerShell\7;D:\platform-tools;C:\Users\stern\.cargo\bin;C:\Go\bin;C:\Program Files\dotnet;C:\Users\stern\AppData\Roaming\npm\global;C:\Ruby26-x64\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Neovim\bin;C:\Program Files (x86)\dotnet;C:\Users\stern\AppData\Local\nvim\glo663wb\bin;C:\work\bit;C:\Program Files\nodejs;C:\Users\stern\.wasmer\bin;C:\Users\stern\.wasmer\globals\wapm_packages\.bin;D:\www\emsdk\upstream\bin;C:\Program Files\nu\bin;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\stern\AppData\Local\Programs\Python\Python38\Scripts;C:\Users\stern\AppData\Local\Programs\Python\Python38;C:\Users\stern\AppData\Local\Volta\bin;C:\Users\stern\.poetry\bin;C:\Users\stern\scoop\shims;C:\Users\stern\AppData\Local\Microsoft\WindowsApps;C:\Users\stern\go\bin;C:\Users\stern\AppData\Local\Programs\Fiddler;C:\Users\stern\AppData\Local\hyper\app-3.0.2\resources\bin;C:\Program Files\OpenVPN\bin;C:\Program Files\Bandizip;C:\Users\stern\.dotnet\tools;C:\Users\stern\AppData\Local\Microsoft\WindowsApps;C:\Program Files\IPFS Desktop\resources\app.asar.unpacked\src\ipfs-on-path\scripts\bin-win;C:\Users\stern\.deno\bin;D:\www\emsdk\fastcomp\emscripten;C:\Users\stern\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  14.15.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\www\xunlei\qunhui-h5\node_modules\esbuild\esbuild.exe'
+
+npm manifest: 
+  {
+    "name": "qunhui-h5",
+    "version": "0.0.0",
+    "scripts": {
+      "dev": "vite",
+      "build": "vue-tsc --noEmit && vite build",
+      "serve": "vite preview"
+    },
+    "dependencies": {
+      "vue": "^3.0.5"
+    },
+    "devDependencies": {
+      "@vitejs/plugin-vue": "^1.1.5",
+      "@vue/compiler-sfc": "^3.0.5",
+      "typescript": "^4.1.3",
+      "vite": "^2.1.0",
+      "vue-tsc": "^0.0.8"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
