@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "@types/node": "^14.14.35",
+    "stylus": "^0.54.8",
+    "stylus-px2rem": "^1.0.14",
     "vue": "^3.0.5",
     "vue-router": "4",
     "vuex": "^4.0.0"
