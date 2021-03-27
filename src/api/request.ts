@@ -39,3 +39,42 @@ export async function request (url: string, data = {}, option = {}) {
     headers
   })
 }
+
+
+async function parseData (options: IOptions): Promise<IParsedData> {
+  const method: Method = options.method || 'GET'
+  // if (process.env.TARO_ENV === 'h5') {
+  let peerId: string = ''
+  let guid: string = ''
+  let userId: string = '0'
+  let sessionId: string = ''
+  if (config.runtimeEnv === 'shoulei') {
+    const appMetaData: IAppMetaData = await getAppMetaData()
+    const userInfo: IUser = await getUserInfo()
+    if (appMetaData) {
+      peerId = appMetaData.peerId
+      guid = appMetaData.guid
+    }
+    if (userInfo) {
+      userId = userInfo.userId as string
+      sessionId = userInfo.userId as string
+    }
+  } else {
+    peerId = getCookie('peerid') || getCookie('deviceid')
+    userId = getCookie('userid')
+    sessionId = getCookie('sessionid')
+  }
+  if (!guid) {
+    guid = md5(peerId || random(32))
+  }
+  const userInfo: IUserInfo = {
+    userId,
+    sessionId,
+    peerId,
+    guid
+  }
+  return {
+    method,
+    userInfo
+  }
+}

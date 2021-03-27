@@ -13,25 +13,37 @@ const isQzone = UA_QZONE_REG.test(ua)
 export const isWx = UA_WX_REG.test(ua)
 export const isIOS = UA_IOS_REG.test(ua) || isIOS13Pad
 
-const callbacks = window.G2_callbacks = {
+const callbacks: any = window.G2_callbacks = {
   _id: 0,
   _getId: function () {
     return this._id++
   }
 }
 
-export function sendMessage ({ jsBridge, method, target, params, isCallBack = false, callbackTimeout = 5000, isJSON = true }) {
+interface IMessage {
+  jsBridge: string
+  method: string
+  target: string
+  params: {
+    [key: string]: any
+  }
+  callbackTimeout: number
+  isCallBack: boolean
+  isJSON: boolean
+}
+
+export function sendMessage ({ jsBridge, method, target, params, isCallBack = false, callbackTimeout = 5000, isJSON = true }: IMessage) {
   if (!window[jsBridge]) {
     return Promise.reject('不在客户端环境内')
   }
   const clientPromise = new Promise((resolve, reject) => {
     // 默认以全局callback的形式进行回调
     if (isCallBack) {
-      window[jsBridge][method](target, params, (...args) => {
+      window[jsBridge][method](target, params, (...args: any) => {
         resolve(args)
       })
     } else {
-      let callbackName: string | null = null
+      let callbackName: string
       const callbackKey = '_callback_' + callbacks._getId() + '_' + target
       callbacks[callbackKey] = function (args: any) {
         callbacks[callbackKey] = null

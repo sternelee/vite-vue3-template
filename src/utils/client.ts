@@ -2,12 +2,16 @@
 
 import { sendMessage } from './XLCLientCommon'
 
+interface IParams {
+  [key: string]: any
+}
+
 export default {
   // 安卓
   isNative () {
     return !!window.XLAccountJsBridge
   },
-  callFunction (target, params = {}, args) {
+  callFunction (target: string, params: IParams = {}, args: IParams & any) {
     return sendMessage({
       jsBridge: 'XLJSWebViewBridge',
       method: 'sendMessage',
@@ -17,7 +21,7 @@ export default {
     })
   },
   // 用于云盘手雷内账号authorize获取，在webview中注入了账号的方法，可直接调用
-  ssoCallFunction (target, params = {}) {
+  callHandler (target: string, params: IParams = {}) {
     return sendMessage({
       jsBridge: 'XLAccountJsBridge',
       method: 'callFunction',
@@ -31,7 +35,7 @@ export default {
   isIOS () {
     return !!window.WebViewJavascriptBridge
   },
-  callNativeHandler (target, params = {}, args) {
+  callNativeHandler (target: string, params: IParams = {}, args: IParams & any) {
     return sendMessage({
       jsBridge: 'WebViewJavascriptBridge',
       method: 'callHandler',

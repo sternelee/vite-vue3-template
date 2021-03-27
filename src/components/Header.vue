@@ -24,11 +24,15 @@ export default defineComponent({
   //     required: true
   //   }
   // },
+  data () {
+    return {
+      list: ['Nas-1', 'Nas-2', 'Nas-3'],
+      has: true,
+      val: 0
+    }
+  },
   setup: () => {
-    const list = ref(['Nas-1', 'Nas-2', 'Nas-3'])
-    const has = ref(true);
-    const val = ref(0)
-    return { list, has, val }
+    console.log('create')
   }
 })
 </script>
