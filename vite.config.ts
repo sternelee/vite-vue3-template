@@ -1,15 +1,18 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import path from "path"
-
-function resolve(dir) {
-  return path.join(__dirname, dir)
-}
+import alias from '@rollup/plugin-alias'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  alias: {
-    '/@/': resolve('src')
-  },
-  plugins: [vue()]
+  plugins: [
+    alias({
+      entries: [
+        { find: /@utils\/(.*)/, replacement: './utils/$1.ts'},
+        { find: /@lib\/(.*)/, replacement: './lib/$1.ts'},
+        { find: /@api\/(.*)/, replacement: './api/$1.js'},
+        { find: /@\/components\/([^']*)/, replacement: './components/$1.vue'}
+      ]
+    }),
+    vue()
+  ]
 })

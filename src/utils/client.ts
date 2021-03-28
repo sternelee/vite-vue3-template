@@ -1,6 +1,6 @@
 // 与安卓，IOS手雷客户端交互的api
 
-import { sendMessage } from './XLCLientCommon'
+import { sendMessage, isAndroid, isIOS } from './XLCLientCommon'
 
 interface IParams {
   [key: string]: any
@@ -8,10 +8,8 @@ interface IParams {
 
 export default {
   // 安卓
-  isNative () {
-    return !!window.XLAccountJsBridge
-  },
-  callFunction (target: string, params: IParams = {}, args: IParams & any) {
+  isNative: isAndroid && !!window.XLAccountJsBridge,
+  callFunction (target: string, params: IParams = {}, args?: IParams & any) {
     return sendMessage({
       jsBridge: 'XLJSWebViewBridge',
       method: 'sendMessage',
@@ -32,10 +30,8 @@ export default {
   },
 
   // 适合ios
-  isIOS () {
-    return !!window.WebViewJavascriptBridge
-  },
-  callNativeHandler (target: string, params: IParams = {}, args: IParams & any) {
+  isIOS: isIOS && !!window.WebViewJavascriptBridge,
+  callIosHandler (target: string, params: IParams = {}, args?: IParams & any) {
     return sendMessage({
       jsBridge: 'WebViewJavascriptBridge',
       method: 'callHandler',
@@ -44,5 +40,8 @@ export default {
       isCallBack: true,
       ...args
     })
+  },
+  clientToast (message = '未知错误，请稍后再试') {
+    this.isNative && this.callFunction('xlShowToast', { message })
   }
 }

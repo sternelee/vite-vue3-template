@@ -25,3 +25,8 @@ Run `Volar: Switch TS Plugin on/off` from VSCode command palette.
 3. Open `src/main.ts` in VSCode
 4. Open the VSCode command palette
 5. Search and run "Select TypeScript version" -> "Use workspace version"
+
+### [vue3](https://v3.cn.vuejs.org/)
+### [vuex4 全局状态](https://next.vuex.vuejs.org/index.html)
+
+### [vue-router 路由](https://next.router.vuejs.org/zh/introduction.html)

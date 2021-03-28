@@ -7,9 +7,9 @@ const UA_WX_REG = /MicroMessenger/
 const UA_WEIBO_REG = /\bWeibo/
 const UA_QZONE_REG = /Qzone\//
 
-const isAndroid = UA_ANDROID_REG.test(ua)
-const isWeibo = UA_WEIBO_REG.test(ua)
-const isQzone = UA_QZONE_REG.test(ua)
+export const isAndroid = UA_ANDROID_REG.test(ua)
+export const isWeibo = UA_WEIBO_REG.test(ua)
+export const isQzone = UA_QZONE_REG.test(ua)
 export const isWx = UA_WX_REG.test(ua)
 export const isIOS = UA_IOS_REG.test(ua) || isIOS13Pad
 
@@ -27,9 +27,9 @@ interface IMessage {
   params: {
     [key: string]: any
   }
-  callbackTimeout: number
-  isCallBack: boolean
-  isJSON: boolean
+  callbackTimeout?: number
+  isCallBack?: boolean
+  isJSON?: boolean
 }
 
 export function sendMessage ({ jsBridge, method, target, params, isCallBack = false, callbackTimeout = 5000, isJSON = true }: IMessage) {

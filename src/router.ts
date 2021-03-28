@@ -9,7 +9,7 @@ const routes = [
         component: () => import('./views/login/index.vue')
       },
     ]
-  },
+  }
 ]
 
 var router = createRouter({

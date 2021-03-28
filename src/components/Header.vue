@@ -36,3 +36,36 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="stylus" scoped>
+@import "../assets/px2rem.styl"
+
+header {
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  background: #F3F4F5;
+  align-items: center;
+  justify-content: space-between;
+  section {
+    width: 120px;
+    height: 30px;
+    background: #EAEBED;
+    border-radius: 20px;
+    select {
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 10px;
+      box-sizing: border-box;
+      border: none;
+      background: transparent;
+      outline: none;
+    }
+  }
+}
+
+</style>
